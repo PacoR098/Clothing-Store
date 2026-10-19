@@ -1,0 +1,43 @@
+---
+interface Props {
+  name: string;
+  price: number;
+  image: string;
+}
+const { name, price, image } = Astro.props;
+const formattedPrice = price.toLocaleString("es-ES", {
+  style: "currency",
+  currency: "EUR",
+});
+---
+<article class="card">
+  <img src={image} alt={name} />
+  <h3>{name}</h3>
+  <p>{formattedPrice}</p>
+</article>
+
+<style>
+  .card {
+    text-align: center;
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;              
+    object-fit: cover;
+    background: #eee;                 
+    margin-bottom: 0.6rem;
+  }
+
+  .card h3 {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #444;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+</style>
