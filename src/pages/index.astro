@@ -1,11 +1,98 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
+<Layout title="Login | Clothing Store">
+  <main class="login">
+    <section class="login__form">
+      <img src="/images/Marca.png" alt="Clothing Store" class="logo" />
+      <h1>Welcome Back</h1>
 
-<Layout>
-	<Welcome />
+      <form>
+        <input type="text" placeholder="User" />
+        <input type="password" placeholder="Password" />
+        <button type="submit" class="btn btn--primary">Log in</button>
+        <button type="button" class="btn btn--google">
+          <img src="/images/Google.png" alt="" />
+          Login with Google
+        </button>
+      </form>
+    </section>
+
+    <section class="login__image">
+      <img src="/images/Login.png" alt="Modelos con ropa de la colección" />
+    </section>
+  </main>
 </Layout>
+
+<style>
+  .login {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    min-height: 100vh;
+  }
+
+  .login__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 2rem;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.08); /* sombra suave hacia la foto */
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo { width: 300px; }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin: 4rem 0 5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 345px;
+  }
+
+  input {
+    height: 64px;
+    padding: 0 1.8rem;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+  }
+
+  .btn {
+    height: 64px;
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .btn--primary {
+    background: #37800f;
+    color: white;
+    border: none;
+    margin-top: 1.5rem;
+  }
+
+  .btn--google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    color: #888;
+  }
+
+  .login__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
